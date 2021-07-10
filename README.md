@@ -3,11 +3,11 @@ How change detection, markForCheck and detectChanges works
 
 OnPush strategy doesn't trigger change detection on setInterval.
 To run change detection - we need to mark element dirty. 
-By clicking on any button - there is called addEventListener, that included in triggers list of OnPush strategy. 
+By clicking on any button - will be called addEventListener, that is included in triggers list of the OnPush strategy. 
 
 Marking element as dirty ( including explicitly changeDetectorRef.markForCheck()) also marks all it's parents. So when you click on the child, or on the super-child button - the parent element is also marked dirty, and change detection will be run for it.
 
-But marking parent element dirty do not mark child elements. 
+But marking the parent element dirty do not mark child elements. 
 
 changeDetectorRef.detectChanges() - runs change detection for current element and it's childs, and updates the view only if current element or child elements was marked dirty. 
 
